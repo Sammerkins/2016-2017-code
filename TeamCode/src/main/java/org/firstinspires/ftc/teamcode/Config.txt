@@ -1,0 +1,31 @@
+Actual Device		Robot Connection		Config Name		Code Name	Module Serial Number
+
+Left Motor 		            Motor 1			left			leftMotor		        AH00QK3F
+Right Motor		            Motor 2			right			rightMotor
+
+
+Acccelerator		        Motor 2			accelerator		accelerator	            AL00VTFN
+Harvester		            Motor 1 		harvester		harvester
+
+
+Cap motor		            Motor 1			cap1			cap1		            AL00VXYY
+Cap motor		            Motor 2			cap2			cap2
+
+Left Slapper		        Port 5			leftslapper		leftslapper	            A1049LQAJ
+Right Slapper 		        Port 6			rightslapper	rightslapper
+Gate			            Port 4			gate			gate
+
+
+
+Gyro			            I2c 3			gyro			gyro		            A102RM2T
+Left Color		            I2c 2			leftcolor		leftcolor
+Right Color		            I2c 5			rightcolor		rightcolor
+Optical Distance Sensor 	A2			    nautilus		nautilus
+
+Ultra Sonic Sensor		    S4			    us1			    us1		                    AL00VBB4
+Ultra Sonic Sensor		    S5			    us2			    us2
+
+
+
+
+
