@@ -129,6 +129,7 @@ public class Drivecode extends LinearOpMode {
         while (opModeIsActive()) {
             Accelerator();
             CapBall();
+            CapGate();
             Wings();
             Harvester();
             DriveTrain();
@@ -140,6 +141,7 @@ public class Drivecode extends LinearOpMode {
             idle();
         }
     }
+
 
     public void Accelerator(){
         double Aspeed = 0;
@@ -196,6 +198,8 @@ public class Drivecode extends LinearOpMode {
         else
             robot.gate.setPosition(0.65);
     }
+
+
     public void Harvester(){
         //speed declaration
         if (gamepad2.dpad_up)
@@ -207,6 +211,8 @@ public class Drivecode extends LinearOpMode {
 
         robot.harvester.setPower(harvesterspeed);
     }
+
+
     public void CapBall(){
         double capPower1 = 0;
         double capPower2 = 0;
@@ -228,6 +234,16 @@ public class Drivecode extends LinearOpMode {
         robot.cap1.setPower(capPower1);
         robot.cap2.setPower(capPower2);
     }
+
+
+    public void CapGate(){
+        double servoval = 0;
+        if (gamepad1.a)
+            servoval = 0.5;
+        robot.capgate.setPosition(servoval);
+    }
+
+
     public void Wings(){
         double servoval = 0;
         if (gamepad1.y || gamepad2.right_bumper)
@@ -239,6 +255,8 @@ public class Drivecode extends LinearOpMode {
             servoval = 0.05;
         robot.leftslapper.setPosition(servoval);
     }
+
+
     public void DriveTrain(){
         //Speed Changing
         boolean rbumper = gamepad1.right_bumper;
@@ -336,6 +354,8 @@ public class Drivecode extends LinearOpMode {
         robot.leftMotor.setPower(leftmotorS);
         robot.rightMotor.setPower(rightmotorS);
     }
+
+
     public void Telemetry(){
         //acutal driver feed
         telemetry.addData("Speed", speeds[speed]);
@@ -380,6 +400,7 @@ public class Drivecode extends LinearOpMode {
             telemetry.addData("Light", robot.nautilus.getLightDetected());
         }
     }
+
 
     public void gyroCorrect(){
         //set gyro now

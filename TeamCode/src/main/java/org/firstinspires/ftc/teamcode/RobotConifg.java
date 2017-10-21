@@ -28,6 +28,7 @@ public class RobotConifg
     public Servo    leftslapper     = null;
     public Servo    rightslapper    = null;
     public Servo    gate            = null;
+    public Servo    capgate           = null;
 
     public GyroSensor gyro      = null;
     //public GyroSensor compass = null;
@@ -68,6 +69,8 @@ public class RobotConifg
         rightslapper     = hwMap.servo.get("rightslapper");
 
         gate        = hwMap.servo.get("gate");
+
+        capgate      = hwMap.servo.get("capgate");
 
         gyro        = hwMap.gyroSensor.get("gyro");
         //compass     = hwMap.gyroSensor.get("compass");
