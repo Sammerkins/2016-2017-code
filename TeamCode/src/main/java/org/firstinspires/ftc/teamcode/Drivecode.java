@@ -112,6 +112,10 @@ public class Drivecode extends LinearOpMode {
     boolean lastGate = false;
     boolean gateOpen = true;
 
+    // cap gate variables
+    boolean buttonA_pressed = false;
+    double capgateservo = 0.1;
+
     RobotConifg         robot     = new RobotConifg();
     private ElapsedTime runtime   = new ElapsedTime();
 
@@ -237,10 +241,22 @@ public class Drivecode extends LinearOpMode {
 
 
     public void CapGate(){
-        double servoval = 0;
-        if (gamepad1.a)
-            servoval = 0.5;
-        robot.capgate.setPosition(servoval);
+
+        /* check if button has just been pressed */
+        if (gamepad1.a && !buttonA_pressed) {
+            /* this should only happen the first time we notice the button press */
+            buttonA_pressed = true;
+            if (capgateservo==0.1)
+                capgateservo = 0.3;
+            else if (capgateservo==0.3)
+                capgateservo = 0.7;
+            else
+                capgateservo = 0.1;
+        }
+        if (!gamepad1.a)
+            buttonA_pressed = false;
+
+        robot.capgate.setPosition(capgateservo);
     }
 
 
@@ -290,9 +306,9 @@ public class Drivecode extends LinearOpMode {
         }
 
         //invert based on stick location
-        if (gamepad1.left_stick_y > gamepad1.left_stick_x)
-            leftmotorS *= -1;
         if (gamepad1.left_stick_y > -gamepad1.left_stick_x)
+            leftmotorS *= -1;
+        if (gamepad1.left_stick_y > gamepad1.left_stick_x)
             rightmotorS *= -1;
 
         //make dead zone for stopping
